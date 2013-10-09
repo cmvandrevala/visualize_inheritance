@@ -1,2 +1,0 @@
-class Sad < Happy
-end
