@@ -1,5 +1,0 @@
-lib/another.rb:class Another
-lib/giraffe.rb:class Giraffe < Poop
-lib/happy.rb:class Happy < Poop
-lib/poop.rb:class Poop
-lib/sad.rb:class Sad < Happy

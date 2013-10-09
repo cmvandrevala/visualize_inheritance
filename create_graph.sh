@@ -2,7 +2,8 @@
 
 grep -r 'lib' -e 'class' > files.txt
 cut -d ' ' -f2- files.txt > classes.txt
-echo 'source,target,value' > force.csv
+echo 'source,target' > force.csv
+
 exec < classes.txt
 while read line
 do
@@ -15,11 +16,10 @@ do
 		done
 	echo $out | tr -d ' ' | tr '<' ',' >> force.csv
 	else
-		echo "Ruby,$line,1" >> force.csv
+		echo "Ruby,$line" >> force.csv
 	fi
 done
 
 open index.html
-#rm files.txt
-#rm classes.txt
-#force.csv
+rm files.txt
+rm classes.txt

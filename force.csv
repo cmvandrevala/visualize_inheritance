@@ -1,6 +1,6 @@
-source,target,value
-Ruby,Another,1
+source,target
+Ruby,Another
 Poop,Giraffe
 Poop,Happy
-Ruby,Poop,1
+Ruby,Poop
 Happy,Sad
