@@ -62,8 +62,8 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(60)
-    .charge(-300)
+    .linkDistance(100) //This used to be 60
+    .charge(-1000) //This used to be -300
     .on("tick", tick)
     .start();
 
@@ -124,7 +124,7 @@ var node = svg.selectAll(".node")
 node.append("circle")
     .attr("r", 5);
 
-// add the text 
+// add the text
 node.append("text")
     .attr("x", 12)
     .attr("dy", ".35em")
