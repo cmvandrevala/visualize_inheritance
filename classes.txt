@@ -1,0 +1,5 @@
+Another
+Giraffe < Poop
+Happy < Poop
+Poop
+Sad < Happy
