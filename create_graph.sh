@@ -1,18 +1,15 @@
 #!/bin/sh
 
-rm -f files.txt trimmed_files.txt classes.txt only_commas.txt 
-rm -f spaced_classes.txt reordered_classes.txt force.csv
+rm -f raw_files.txt trimmed_files.txt 
+rm -f raw_classes.txt spaced_classes.txt
+rm -f reordered_classes.txt force.csv
 
-grep -r '../' --include \*.rb -e 'class ' > files.txt
-
-#Trim All Whitespace
-tr -d ' \t\r\f' < files.txt > trimmed_files.txt
-
-#Remove Directory Information
-egrep -o "(class\S+)" trimmed_files.txt | cut -c 6- > classes.txt
+grep --recursive '../' --include \*.rb --regexp 'class ' > raw_files.txt
+tr -d ' \t\r\f' < raw_files.txt > trimmed_files.txt
+grep -E -o "(class\S+)" trimmed_files.txt | cut -c 6- > raw_classes.txt
 
 #Add Spaces for Future Processing
-sed 's/</ < /g' classes.txt >> spaced_classes.txt
+sed 's/</ < /g' raw_classes.txt >> spaced_classes.txt
 
 #Reverse Each Line
 awk '{ for (i=NF; i>=1; i--) printf (i!=1) ? $i OFS : $i "\n" }' spaced_classes.txt >> reordered_classes.txt
@@ -41,5 +38,6 @@ while read LINE; do
 done
 
 open index.html
-rm -f files.txt trimmed_files.txt classes.txt only_commas.txt 
-rm -f spaced_classes.txt reordered_classes.txt
+rm -f raw_files.txt trimmed_files.txt 
+rm -f raw_classes.txt spaced_classes.txt
+rm -f reordered_classes.txt
