@@ -1,10 +1,9 @@
 #!/bin/sh
 
-#Clean Up Folder
-rm -f files.txt trimmed_files.txt classes.txt only_commas.txt spaced_classes.txt reordered_classes.txt force.csv
+rm -f files.txt trimmed_files.txt classes.txt only_commas.txt 
+rm -f spaced_classes.txt reordered_classes.txt force.csv
 
-#Collect All Classes in Each File in ../lib
-grep -r '../lib' -e 'class' > files.txt
+grep -r '../' --include \*.rb -e 'class ' > files.txt
 
 #Trim All Whitespace
 tr -d ' \t\r\f' < files.txt > trimmed_files.txt
@@ -42,4 +41,5 @@ while read LINE; do
 done
 
 open index.html
-rm -f files.txt trimmed_files.txt classes.txt only_commas.txt spaced_classes.txt reordered_classes.txt
+rm -f files.txt trimmed_files.txt classes.txt only_commas.txt 
+rm -f spaced_classes.txt reordered_classes.txt
