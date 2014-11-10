@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/ruby
 
 rm -f raw_files.txt trimmed_files.txt 
 rm -f raw_classes.txt spaced_classes.txt
