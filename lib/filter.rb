@@ -4,8 +4,8 @@ module VisualizeInheritance
 
   class Filter
 
-    def initialize
-      @scanned_classes = []
+    def initialize(scanned_classes = [])
+      @scanned_classes = scanned_classes
       @output_array = []
     end
 
@@ -16,8 +16,10 @@ module VisualizeInheritance
     def output
       @scanned_classes.each do |hash|
         @output_array << hash.invert
-        @output_array << {"ruby" => hash.values.first}
+        @output_array << {"Object" => hash.values.first}
       end
+      @output_array << {"BasicObject" => "Kernel"}
+      @output_array << {"Kernel" => "Object"}
       @output_array
     end
 
