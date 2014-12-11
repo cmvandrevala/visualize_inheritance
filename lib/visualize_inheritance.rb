@@ -2,12 +2,26 @@ require_relative "visualize_inheritance/version"
 
 module VisualizeInheritance
 
-  class Graph
+  def self.bin
+    File.join root, 'bin'
+  end
 
-    def self.create
-      system("sh ../bin/visualize.sh")
-    end
+  def self.lib
+    File.join root, 'lib'
+  end
 
+  def self.root
+    File.dirname __dir__
+  end
+
+  def self.csv
+    f = File.join bin, 'visualize.sh'
+    system("sh #{f}")
+  end
+
+  def self.graph
+    f = File.join lib, 'index.html'
+    system("open #{f}")
   end
 
 end

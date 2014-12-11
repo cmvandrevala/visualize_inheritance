@@ -20,6 +20,5 @@ do
 	fi
 done
 
-open index.html
 rm files.txt
 rm classes.txt
