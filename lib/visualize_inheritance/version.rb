@@ -1,3 +1,3 @@
 module VisualizeInheritance
-  VERSION = "0.0.4"
+  VERSION = "0.0.11"
 end
