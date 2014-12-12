@@ -20,8 +20,10 @@ module VisualizeInheritance
   end
 
   def self.graph
-    f = File.join lib, 'visualize_inheritance', 'templates', 'index.html'
-    system("open #{f}")
+    index_file = File.join lib, 'visualize_inheritance', 'templates', 'index.html'
+    csv_file = File.join lib, 'visualize_inheritance', 'templates', 'force.csv'
+    system("cp #{csv} #{csv_file}")
+    system("open #{index_file}")
   end
 
 end
