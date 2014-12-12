@@ -20,7 +20,7 @@ module VisualizeInheritance
   end
 
   def self.graph
-    f = File.join bin, 'index.html'
+    f = File.join lib, 'visualize_inheritance', 'templates', 'index.html'
     system("open #{f}")
   end
 
